@@ -6,7 +6,7 @@ import { DCACore } from "../src/DCACore.sol";
 import { DCACoreResolver } from "../src/DCACoreResolver.sol";
 
 import { BaseScript } from "./Base.s.sol";
-import { Script } from "forge-std/src/Script.sol";
+import { Script } from "lib/forge-std/src/Script.sol";
 
 // sepolia env variables
 address constant SEPOLIA_UNISWAP_ROUTER_2 = 0xC532a74256D3Db42D0Bf7a0400fEFDbad7694008;
