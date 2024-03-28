@@ -14,6 +14,7 @@ contract DCACore is IDCACore, Ownable {
     Position[] public positions;
     IUniswapV2Router public uniRouter;
     address public executor;
+    address public _owner;
 
     bool public paused;
     mapping(address => mapping(address => bool)) public allowedTokenPairs;
@@ -38,12 +39,14 @@ contract DCACore is IDCACore, Ownable {
     constructor(
         address _uniRouter,
         address _executor,
-        address _weth
-    ) {
+        address _weth,
+        address initialOwner
+    ) Ownable(initialOwner) {
         uniRouter = IUniswapV2Router(_uniRouter);
         executor = _executor;
         weth = _weth;
         paused = false;
+        _owner = initialOwner;
     }
 
     function createPositionAndDeposit(
